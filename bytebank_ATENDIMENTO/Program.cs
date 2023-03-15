@@ -26,7 +26,7 @@ void TestaArray()
         Console.WriteLine($"O índice {i} contém o valor: {idade}");
     }
     double media = total / idades.Length;
- 
+
     Console.WriteLine($"A média das idades é igual a: {media}");
 
 }
@@ -37,7 +37,7 @@ void TestaBuscarPalavra()
 
     for (int i = 0; i < arrayDePalavras.Length; i++)
     {
-        Console.Write($"Digite a {i+1}ª Palavra: ");
+        Console.Write($"Digite a {i + 1}ª Palavra: ");
         arrayDePalavras[i] = Console.ReadLine();
     }
 
@@ -51,7 +51,7 @@ void TestaBuscarPalavra()
             Console.WriteLine($"Palavra encontrada = {busca}");
             break;
         }
-        
+
     }
 }
 
@@ -66,7 +66,8 @@ amostra.SetValue(8, 5);
 // TestaMediana(amostra);
 void TestaMediana(Array array)
 {
-    if((array == null) || (array.Length == 0)){
+    if ((array == null) || (array.Length == 0))
+    {
         Console.WriteLine("Array para cálculo da mediana está vazio ou nulo.");
     }
 
@@ -97,7 +98,35 @@ void TestaArrayDeContasCorrentes()
 //TestaArrayDeContasCorrentes();
 #endregion
 
-ArrayList _listaDeContas = new ArrayList();
+List<ContaCorrente> _listaDeContas = new List<ContaCorrente>()
+{
+    new ContaCorrente(546),
+    new ContaCorrente(547),
+    new ContaCorrente(548)
+};
+
+List<ContaCorrente> _listaDeContas2 = new List<ContaCorrente>()
+{
+    new ContaCorrente(646),
+    new ContaCorrente(647),
+    new ContaCorrente(648)
+};
+
+List<ContaCorrente> _listaDeContas3 = new List<ContaCorrente>()
+{
+    new ContaCorrente(746),
+    new ContaCorrente(747),
+    new ContaCorrente(748)
+};
+
+
+// ADDRANGE = faz o merge de 2 listas
+_listaDeContas2.AddRange(_listaDeContas3);
+
+for (int i = 0; i < _listaDeContas2.Count; i++)
+{
+    Console.WriteLine($"Indice[{i}] = Conta [{_listaDeContas2[i].Conta}]");
+}
 void AtendimentoCliente()
 {
     char opcao = '0';
@@ -131,32 +160,7 @@ void AtendimentoCliente()
     }
 }
 
-void ListarContas()
-{
-    Console.Clear();
-    Console.WriteLine("===============================");
-    Console.WriteLine("===     LISTA DE CONTAS     ===");
-    Console.WriteLine("===============================");
-    Console.WriteLine("\n");
-    if (_listaDeContas.Count <= 0)
-    {
-        Console.WriteLine("... Não há contas cadastradas! ...");
-        Console.ReadKey();
-        return;
-    }
-    foreach (ContaCorrente item in _listaDeContas)
-    {
-        Console.WriteLine("===  Dados da Conta  ===");
-        Console.WriteLine("Número da Conta : " + item.Conta);
-        Console.WriteLine("Saldo da Conta : " + item.Saldo);
-        Console.WriteLine("Titular da Conta: " + item.Titular.Nome);
-        Console.WriteLine("CPF do Titular  : " + item.Titular.Cpf);
-        Console.WriteLine("Profissão do Titular: " + item.Titular.Profissao);
-        Console.WriteLine(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-    }
-        Console.ReadKey();
 
-}
 
 void CadastrarConta()
 {
@@ -191,4 +195,32 @@ void CadastrarConta()
     Console.ReadKey();
 }
 
-AtendimentoCliente();
+void ListarContas()
+{
+    Console.Clear();
+    Console.WriteLine("===============================");
+    Console.WriteLine("===     LISTA DE CONTAS     ===");
+    Console.WriteLine("===============================");
+    Console.WriteLine("\n");
+    if (_listaDeContas.Count <= 0)
+    {
+        Console.WriteLine("... Não há contas cadastradas! ...");
+        Console.ReadKey();
+        return;
+    }
+    foreach (ContaCorrente item in _listaDeContas)
+    {
+        Console.WriteLine("===  Dados da Conta  ===");
+        Console.WriteLine("Número da Conta : " + item.Conta);
+        Console.WriteLine("Saldo da Conta : " + item.Saldo);
+        Console.WriteLine("Titular da Conta: " + item.Titular.Nome);
+        Console.WriteLine("CPF do Titular  : " + item.Titular.Cpf);
+        Console.WriteLine("Profissão do Titular: " + item.Titular.Profissao);
+        Console.WriteLine(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+    }
+    Console.ReadKey();
+
+}
+
+
+//AtendimentoCliente();
