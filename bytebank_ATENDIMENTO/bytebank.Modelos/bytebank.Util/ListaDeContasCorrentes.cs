@@ -18,8 +18,7 @@ namespace bytebank_ATENDIMENTO.bytebank.Modelos.bytebank.Util
 
         public void Adicionar(ContaCorrente item)
         {
-            Console.WriteLine($"Adicionando item na posição {_proximaPosicao} = " +
-                $"AG: 3{item.Numero_agencia} CC: {item.Conta}");
+            Console.WriteLine($"Adicionando item na posição {_proximaPosicao} ") ;
             VerificarCapacidade(_proximaPosicao+1);
             _itens[_proximaPosicao] = item;
             _proximaPosicao++;
@@ -47,15 +46,31 @@ namespace bytebank_ATENDIMENTO.bytebank.Modelos.bytebank.Util
             _itens[_proximaPosicao] = null;
         }
 
-        private void VerificarCapacidade(int tamanhoNecesario)
+        public void ExibeLista()
         {
-            if(_itens.Length >= tamanhoNecesario)
+            Console.WriteLine();
+            Console.WriteLine(" ================ CONTAS ATIVAS ================");
+            for (int i = 0; i < _itens.Length; i++)
+            {
+                if (_itens[i] != null)
+                {
+                    var conta = _itens[i];
+                    Console.WriteLine($" Indice[{i}] = Conta:{conta.Conta} - N° da Agência: {conta.Numero_agencia}");
+                }
+            }
+            Console.WriteLine(" ===============================================");
+        }
+
+
+        private void VerificarCapacidade(int tamanhoNecessario)
+        {
+            if(_itens.Length >= tamanhoNecessario)
             {
                 return;
             }
-
+            
             Console.WriteLine("Aumentando a capacidade da lista!");
-            ContaCorrente[] novoArray = new ContaCorrente[tamanhoNecesario];
+            ContaCorrente[] novoArray = new ContaCorrente[tamanhoNecessario];
 
             for (int i = 0; i < _itens.Length; i++)
             {
