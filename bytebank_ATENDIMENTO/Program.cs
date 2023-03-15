@@ -129,16 +129,24 @@ for (int i = 0; i < _listaDeContas2.Count; i++)
 }
 
 // GETRANGE = pega um intervalo dentro da lista
-var range = _listaDeContas3.GetRange(1,2);
-    Console.WriteLine("\n\n");
+var range = _listaDeContas3.GetRange(1, 2);
+Console.WriteLine("\n\n");
 
+Console.WriteLine("LISTA 3 do indice 1 ao 2");
 for (int i = 0; i < range.Count; i++)
 {
-    Console.WriteLine("LISTA 3 do indice 1 ao 2");
     Console.WriteLine($"Indice[{i}] = Conta [{range[i].Conta}]");
 }
 
 
+// REVERSE = inverte a ordem da lista
+Console.WriteLine("\n\n");
+_listaDeContas2.Reverse();
+Console.WriteLine("LISTA 2 invertida");
+for (int i = 0; i < _listaDeContas2.Count; i++)
+{
+    Console.WriteLine($"Indice[{i}] = Conta [{_listaDeContas2[i].Conta}]");
+}
 
 void AtendimentoCliente()
 {
@@ -172,8 +180,6 @@ void AtendimentoCliente()
         }
     }
 }
-
-
 
 void CadastrarConta()
 {
