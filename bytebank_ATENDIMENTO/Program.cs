@@ -147,6 +147,14 @@ for (int i = 0; i < _listaDeContas2.Count; i++)
 {
     Console.WriteLine($"Indice[{i}] = Conta [{_listaDeContas2[i].Conta}]");
 }
+Console.WriteLine("\n\n");
+// CLEAR = limpa a lista
+_listaDeContas2.Clear();
+Console.WriteLine("LISTA 2 PÓS CLEAR");
+for (int i = 0; i < _listaDeContas2.Count; i++)
+{
+    Console.WriteLine($"Indice[{i}] = Conta [{_listaDeContas2[i].Conta}]");
+}
 
 void AtendimentoCliente()
 {
@@ -243,3 +251,49 @@ void ListarContas()
 
 
 //AtendimentoCliente();
+
+List<string> nomesDosEscolhidos = new List<string>()
+{
+    "Bruce Wayne",
+    "Carlos Vilagran",
+    "Richard Grayson",
+    "Bob Kane",
+    "Will Farrel",
+    "Lois Lane",
+    "General Welling",
+    "Perla Letícia",
+    "Uxas",
+    "Diana Prince",
+    "Elisabeth Romanova",
+    "Anakin Wayne"
+};
+
+void EncontrarNome(List<string> listaDeNomes, string encontrarNome)
+{
+    for (int i = 0; i < listaDeNomes.Count; i++)
+    {
+        var nomeAtual = listaDeNomes[i];
+        if (nomeAtual == encontrarNome)
+        {
+            Console.WriteLine($"Nome encontrado na posição indice:{i} ");
+            return;
+        }
+
+    }
+    Console.WriteLine($"Nome não encontrado!");
+}
+
+//EncontrarNome(nomesDosEscolhidos, "Luciano");
+
+// SOLUÇÃO USANDO CONTAINS
+void VerificaNomes(List<string> nomesDosEscolhidos, string escolhido)
+{
+    if (nomesDosEscolhidos.Contains(escolhido))
+    {
+        Console.WriteLine("Nome encontrado");
+        return;
+    }
+    Console.WriteLine("Nome não encontrado!");
+}
+
+VerificaNomes(nomesDosEscolhidos, "Luciano");
