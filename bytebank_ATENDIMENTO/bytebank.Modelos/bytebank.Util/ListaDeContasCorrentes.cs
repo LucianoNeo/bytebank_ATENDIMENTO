@@ -20,9 +20,31 @@ namespace bytebank_ATENDIMENTO.bytebank.Modelos.bytebank.Util
         {
             Console.WriteLine($"Adicionando item na posição {_proximaPosicao} = " +
                 $"AG: 3{item.Numero_agencia} CC: {item.Conta}");
-            VerificarCapacidade(_proximaPosicao + 1);
+            VerificarCapacidade(_proximaPosicao+1);
             _itens[_proximaPosicao] = item;
             _proximaPosicao++;
+        }
+
+    
+        public void Remover(ContaCorrente conta)
+        {
+            int indiceItem = -1;
+            for (int i = 0; i < _proximaPosicao; i++)
+            {
+                ContaCorrente contaAtual = _itens[i];
+                if (contaAtual == conta)
+                {
+                    indiceItem = i;
+                    break;
+                }
+            }
+       
+            for (int i = indiceItem; i < _proximaPosicao - 1; i++)
+            {
+                _itens[i] = _itens[i + 1];
+            }
+            _proximaPosicao--;
+            _itens[_proximaPosicao] = null;
         }
 
         private void VerificarCapacidade(int tamanhoNecesario)
