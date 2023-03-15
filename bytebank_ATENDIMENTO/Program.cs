@@ -127,6 +127,19 @@ for (int i = 0; i < _listaDeContas2.Count; i++)
 {
     Console.WriteLine($"Indice[{i}] = Conta [{_listaDeContas2[i].Conta}]");
 }
+
+// GETRANGE = pega um intervalo dentro da lista
+var range = _listaDeContas3.GetRange(1,2);
+    Console.WriteLine("\n\n");
+
+for (int i = 0; i < range.Count; i++)
+{
+    Console.WriteLine("LISTA 3 do indice 1 ao 2");
+    Console.WriteLine($"Indice[{i}] = Conta [{range[i].Conta}]");
+}
+
+
+
 void AtendimentoCliente()
 {
     char opcao = '0';
