@@ -5,26 +5,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace bytebank_ATENDIMENTO.bytebank.Modelos.bytebank.Util
+namespace bytebank_ATENDIMENTO.bytebank.Util
 {
     public class ListaDeContasCorrentes
     {
         private ContaCorrente[] _itens = null;
-        private int _proximaPosicao=0;
-        public ListaDeContasCorrentes(int tamanhoInicial=5)
+        private int _proximaPosicao = 0;
+        public ListaDeContasCorrentes(int tamanhoInicial = 5)
         {
             _itens = new ContaCorrente[tamanhoInicial];
         }
 
         public void Adicionar(ContaCorrente item)
         {
-            Console.WriteLine($"Adicionando item na posição {_proximaPosicao} ") ;
-            VerificarCapacidade(_proximaPosicao+1);
+            Console.WriteLine($"Adicionando item na posição {_proximaPosicao} ");
+            VerificarCapacidade(_proximaPosicao + 1);
             _itens[_proximaPosicao] = item;
             _proximaPosicao++;
         }
 
-    
+
         public void Remover(ContaCorrente conta)
         {
             int indiceItem = -1;
@@ -37,7 +37,7 @@ namespace bytebank_ATENDIMENTO.bytebank.Modelos.bytebank.Util
                     break;
                 }
             }
-       
+
             for (int i = indiceItem; i < _proximaPosicao - 1; i++)
             {
                 _itens[i] = _itens[i + 1];
@@ -64,11 +64,11 @@ namespace bytebank_ATENDIMENTO.bytebank.Modelos.bytebank.Util
 
         private void VerificarCapacidade(int tamanhoNecessario)
         {
-            if(_itens.Length >= tamanhoNecessario)
+            if (_itens.Length >= tamanhoNecessario)
             {
                 return;
             }
-            
+
             Console.WriteLine("Aumentando a capacidade da lista!");
             ContaCorrente[] novoArray = new ContaCorrente[tamanhoNecessario];
 
