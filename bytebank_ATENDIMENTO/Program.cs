@@ -5,7 +5,7 @@ Console.WriteLine("Boas Vindas ao ByteBank, Atendimento.");
 Console.WriteLine();
 //new ByteBankAtendimento().AtendimentoCliente();
 
-var listaDeChaves = new List<string>(GeradorPix.GetChavesPix(10));
+var listaDeChaves = GeradorPix.GetChavesPix(10);
 
 Console.WriteLine("Chave unica");
 Console.WriteLine(GeradorPix.GetChavePix());

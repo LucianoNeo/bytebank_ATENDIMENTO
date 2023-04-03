@@ -6,11 +6,16 @@
         {
         }
 
+        
         public override void AumentarSalario()
         {
             Salario *= 1.1;
         }
 
+        /// <summary>
+        /// Método que retorna a bonificação.
+        /// </summary>
+        /// <returns> Retorna um double com o salário * 0.2 </returns>
         protected internal override double getBonificacao()
         {
             return Salario * 0.2;
